@@ -87,3 +87,59 @@ class Review:
         return self.restaurant
 
 
+
+# Creates 4 different customers
+customer1 = Customer("Don", "Draper")
+customer2 = Customer("Peggy", "Olson")
+customer3 = Customer("Pete", "Campbell")
+customer4 = Customer("Betty", "Draper")
+
+# Create 3 restaurants to review
+restaurant1 = Restaurant("Restaurant A")
+restaurant2 = Restaurant("Restaurant B")
+restaurant3 = Restaurant("Restaurant C")
+
+# Add reviews
+customer1.addReview(restaurant1, 5)
+customer1.addReview(restaurant2, 4)
+customer1.addReview(restaurant3, 3)
+
+customer2.addReview(restaurant1, 4)
+customer2.addReview(restaurant2, 5)
+customer2.addReview(restaurant3, 4)
+
+customer3.addReview(restaurant1, 3)
+customer3.addReview(restaurant2, 4)
+customer3.addReview(restaurant3, 5)
+
+customer4.addReview(restaurant1, 5)
+customer4.addReview(restaurant2, 3)
+customer4.addReview(restaurant3, 4)
+
+# Print average ratings for each restaurant
+print("Average rating for Restaurant A:", restaurant1.averageStarRating())
+print("Average rating for Restaurant B:", restaurant2.averageStarRating())
+print("Average rating for Restaurant C:", restaurant3.averageStarRating())
+
+# Print full names of all customers
+print("All customers:")
+for customer in Customer.all():
+    print(customer.fullName())
+
+# Print customers who reviewed each restaurant
+print("Customers who reviewed Restaurant A:")
+for customer in restaurant1.customers():
+    print(customer.fullName())
+
+print("Customers who reviewed Restaurant B:")
+for customer in restaurant2.customers():
+    print(customer.fullName())
+
+print("Customers who reviewed Restaurant C:")
+for customer in restaurant3.customers():
+    print(customer.fullName())
+
+# Print customers with given name 'Don'
+print("Customers with given name 'Don':")
+for customer in Customer.findAllByGivenName("Don"):
+    print(customer.fullName())
